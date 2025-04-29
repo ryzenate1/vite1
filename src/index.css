@@ -1,0 +1,462 @@
+/* --- FONT IMPORTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,800;0,900;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* --- TAILWIND DIRECTIVES --- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-start-rgb: 0, 0, 0;
+      --background-end-rgb: 0, 0, 0;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-black text-white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Glass Container */
+.glass-container {
+  @apply backdrop-blur-md bg-white/10 border border-white/20 rounded-lg;
+}
+
+/* Slick Slider Custom Styles */
+.slick-track-equal-height .slick-track {
+  display: flex !important;
+}
+
+.slick-track-equal-height .slick-slide {
+  height: inherit !important;
+  display: flex !important;
+}
+
+.slick-track-equal-height .slick-slide > div {
+  width: 100%;
+  height: 100%;
+}
+
+/* --- GLOBAL STYLES --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  @apply bg-[#0d1117] text-[#c9d1d9];
+  cursor: none;
+}
+
+* {
+  cursor: none;
+}
+
+/* Locomotive Scroll Fix */
+html.has-scroll-smooth, html.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+/* Enable cursor for clickable elements if needed */
+button, a, input, textarea, [role="button"], [onclick] {
+  cursor: none;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes gradient-flow {
+  0% { background-position: -100% -100%; }
+  50% { background-position: 200% 200%; }
+  100% { background-position: -100% -100%; }
+}
+
+/* Text Glow Effect */
+.text-glow-white {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Section Spacing */
+section {
+  @apply py-16 md:py-24 px-4 md:px-8;
+}
+
+/* Container Width */
+.container {
+  @apply max-w-7xl mx-auto;
+}
+
+/* Glass Card */
+.glass-card {
+  @apply backdrop-blur-md bg-white/10 border border-white/20 rounded-lg p-6 md:p-8;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-white/90 transition-colors duration-300;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white/10 transition-colors duration-300;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply text-neutral-200;
+}
+
+p {
+  @apply text-neutral-400;
+}
+
+/* Grid Layout */
+.grid-auto-fit {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+/* Flex Layout */
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+/* Spacing Utilities */
+.space-y-6 > * + * {
+  @apply mt-6;
+}
+
+.space-y-8 > * + * {
+  @apply mt-8;
+}
+
+/* Responsive Padding */
+.px-responsive {
+  @apply px-4 md:px-8;
+}
+
+.py-responsive {
+  @apply py-16 md:py-24;
+}
+
+/* Background Overlay */
+.bg-overlay {
+  @apply absolute inset-0 bg-black/60 backdrop-blur-sm;
+}
+
+/* Section Title */
+.section-title {
+  @apply text-3xl md:text-4xl font-bold mb-3 text-neutral-200 text-glow-white;
+}
+
+.section-subtitle {
+  @apply text-lg md:text-xl text-neutral-400 text-glow-white max-w-2xl mx-auto;
+}
+
+/* --- TERMINAL STYLES --- */
+.mac-terminal {
+  @apply bg-[#1e1e1e] rounded-lg shadow-2xl border border-neutral-700 overflow-hidden;
+}
+
+.mac-terminal-header {
+  @apply bg-neutral-700 px-3 py-2 flex items-center gap-2 border-b border-neutral-600;
+}
+
+.mac-terminal-dot {
+  @apply w-3 h-3 rounded-full;
+}
+
+.mac-terminal-body {
+  @apply p-4 h-96 overflow-y-auto text-sm font-mono text-neutral-200 whitespace-pre-wrap;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.mac-terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+.mac-terminal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mac-terminal-body::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* --- NAVBAR --- */
+.nav-link {
+  @apply text-[#c9d1d9] hover:text-[#58a6ff] px-3 py-1 transition-colors duration-200;
+}
+
+/* --- LANDING TEXT --- */
+.title-text {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  color: #c9d1d9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.title-text::before {
+  content: none;
+}
+
+/* --- TERMINAL OUTPUT --- */
+.terminal-output-text {
+  font-family: "JetBrains Mono", monospace;
+  color: #79c0ff;
+}
+
+/* --- CURSOR BLINK --- */
+.terminal-cursor {
+  background-color: #79c0ff;
+  color: #79c0ff;
+  @apply inline-block align-middle w-[10px] h-[1.2em] ml-[2px];
+  animation: blink-cursor 1s infinite step-end;
+}
+
+/* --- LINKS --- */
+.text-link {
+  color: #58a6ff;
+  @apply hover:underline;
+}
+
+.text-muted {
+  color: #8b949e;
+}
+
+/* --- CUSTOM COMPONENTS LAYER --- */
+@layer components {
+  
+  /* Glass Container Style without flowy animation */
+  .glass-container {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-lg relative overflow-hidden; 
+  }
+
+  /* Removed ::before pseudo-element rule */
+
+  /* Hide Scrollbar Utility */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Section Divider */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(57, 255, 20, 0.4), transparent);
+  }
+
+  /* Hacker Fonts for Skills */
+  .skill-name-hacker-font {
+    font-family: 'JetBrains Mono', monospace;
+    color: #39ff14;
+  }
+
+  .skill-popup-text {
+    font-family: 'JetBrains Mono', monospace;
+    color: #39ff14;
+  }
+
+  /* Slick Carousel Fixes */
+  .slick-track-equal-height .slick-track {
+    @apply flex !important;
+  }
+  
+  .slick-track-equal-height .slick-slide {
+    @apply h-auto !important;
+  }
+  
+  .slick-track-equal-height .slick-slide > div {
+    @apply h-full !important;
+  }
+
+  .slick-dots li button:before {
+    @apply text-gray-400 text-xs opacity-75 !important;
+  }
+
+  .slick-dots li.slick-active button:before {
+    @apply text-blue-500 opacity-100 !important;
+  }
+
+  .slick-track-equal-height .slick-prev,
+  .slick-track-equal-height .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .slick-track-equal-height .slick-prev {
+    left: -40px;
+  }
+
+  .slick-track-equal-height .slick-next {
+    right: -40px;
+  }
+
+  .slick-track-equal-height .slick-prev:before,
+  .slick-track-equal-height .slick-next:before {
+    content: none !important;
+  }
+}
+
+/* Marquee Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 20s linear infinite;
+}
+
+/* Animations */
+.animate-blink {
+  animation: blink 2s infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientFlow 5s ease infinite;
+}
+
+/* Text Glow */
+.text-glow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Section Spacing */
+.section-gap {
+  @apply gap-8 md:gap-12 lg:gap-16;
+}
+
+/* Grid Layouts */
+.grid-responsive {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
+}
